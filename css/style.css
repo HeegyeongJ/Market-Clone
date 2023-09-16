@@ -8,8 +8,7 @@ body{
 }
 
 .media-info-msg{
-    opacity: 1;
-    position: absolute;
+    position: fixed;
     top: 0;
     left: 0;
     display: flex;
@@ -19,8 +18,8 @@ body{
     height: 100vh;
     background-color: salmon;
 }
-@media screen and (max-width:380px) {
+@media screen and (max-width:500px) {
     .media-info-msg{
-        opacity: 0;
+        display:none;
     }
 }
