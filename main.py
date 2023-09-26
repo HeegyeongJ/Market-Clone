@@ -55,5 +55,10 @@ async def get_image(item_id):
                               """).fetchone()[0]
     return Response(content=bytes.fromhex(image_bytes), media_type="image/*")
     
+    
+@app.post("/signup")
+def signup(id:Annotated[str,Form()], pw:Annotated[str,Form()]):
+    print(id, pw)
+    return '200'
 
 app.mount("/", StaticFiles(directory="frontend", html=True), name="frontend")
