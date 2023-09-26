@@ -33,7 +33,7 @@ async def create_item(image:UploadFile,
     image_bytes = await image.read()
     cur.execute(f"""
                 INSERT INTO items (title, image, price, description, place, insertAt)
-                VALUES('{title}','{image_bytes.hex()}', '{price}', '{description}', '{place}', '{insertAt}')
+                VALUES('{title}','{image_bytes.hex()}', {price}, '{description}', '{place}', {insertAt})
                 """) # f""" """ 문자열 사이 변수넣을 때 쓰는 방법
     con.commit()
     return '200'
@@ -47,13 +47,13 @@ async def get_items():
                        """).fetchall()
     return JSONResponse(jsonable_encoder(dict(row) for row in rows)) # Object 형식으로 (키값) 바꿔서 보냄
 
-@app.get("/images")
+@app.get("/images/{item_id}")
 async def get_image(item_id):
     cur = con.cursor()
     image_bytes = cur.execute(f"""
                               SELECT image from items WHERE id={item_id}
                               """).fetchone()[0]
-    return Response(content=bytes.fromhex(image_bytes))
+    return Response(content=bytes.fromhex(image_bytes), media_type="image/*")
     
 
 app.mount("/", StaticFiles(directory="frontend", html=True), name="frontend")
