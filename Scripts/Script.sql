@@ -4,5 +4,7 @@ CREATE TABLE items (
 	image BLOB,
 	price INTEGER NOT NULL,
 	description TEXT,
-	place TEXT NOT NULL
+	place TEXT NOT NULL,
+	insertAt INTEGER NOT NULL
 );
+
