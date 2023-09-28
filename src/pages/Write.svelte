@@ -1,0 +1,25 @@
+<form action="" id="write-form">
+    <div>
+        <label for="image">이미지</label>
+        <input type="file" name="image" id="image">
+    </div>
+    <div>
+        <label for="title">제목</label>
+        <input type="text" name="title" id="title">
+    </div>
+    <div>
+        <label for="price">가격</label>
+        <input type="number" name="price" id="price">
+    </div>
+    <div>
+        <label for="description">설명</label>
+        <input type="text" name="description" id="description">
+    </div>
+    <div>
+        <label for="place">장소</label>
+        <input type="text" name="place" id="place">
+    </div>       
+    <div>
+        <button type="submit">제출</button>
+    </div>
+</form>
