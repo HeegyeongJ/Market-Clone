@@ -1,6 +1,6 @@
 <script>
     import { getDatabase, ref, push } from "firebase/database";
-    import Footer from "../components/Footer.svelte";
+    import Nav from "../components/Nav.svelte";
     import { getStorage, ref as refImage, uploadBytes, getDownloadURL } from "firebase/storage";
 
 
@@ -73,7 +73,7 @@
         <button type="submit" class="submit-btn">제출</button>
     </div>
 </form>
-<Footer location="write"></Footer>
+<Nav location="write"></Nav>
 
 <style>
     .submit-btn{
